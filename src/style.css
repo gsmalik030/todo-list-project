@@ -13,8 +13,7 @@ body {
   align-items: center;
   height: 100vh;
   background: rgb(61, 218, 213);
-  background:
-    radial-gradient(circle,rgba(61, 218, 213, 0.8888597675398284) 14%,rgba(163, 112, 219, 0.8804564061952906) 86%);
+  background:radial-gradient(circle, rgba(61, 218, 213, 0.8888597675398284) 14%, rgba(163, 112, 219, 0.8804564061952906) 86%);
 }
 
 li {
