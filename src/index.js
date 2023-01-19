@@ -1,11 +1,11 @@
-
 import './style.css';
 import { getTodos } from './modules/task.js';
 
 const addTaskInput = document.querySelector('.add-task__input');
 const taskList = document.querySelector('.add-task');
 const todoItem = JSON.parse(localStorage.getItem('todoItem')) || [];
-const addIcon= document.querySelector('.add__icon')
+const addIcon = document.querySelector('.add__icon');
+// eslint-disable-next-line import/prefer-default-export, import/no-mutable-exports
 export let editIndex = null;
 
 function saveLocalTodos({ index, description, completed }) {
@@ -13,15 +13,23 @@ function saveLocalTodos({ index, description, completed }) {
   localStorage.setItem('todoItem', JSON.stringify(todoItem));
 }
 
+function saveEdit(index) {
+  const newInput = todoItem[index];
+  newInput.description = addTaskInput.value;
+  localStorage.setItem('todoItem', JSON.stringify(todoItem));
+}
 
 const showTasks = (e) => {
   e.preventDefault();
   if (editIndex !== null) {
-
     saveEdit(editIndex);
     editIndex = null;
   } else {
-    saveLocalTodos({ index: todoItem.length + 1, description: addTaskInput.value, completed: false });
+    saveLocalTodos({
+      index: todoItem.length + 1,
+      description: addTaskInput.value,
+      completed: false,
+    });
   }
   getTodos();
   addTaskInput.value = '';
@@ -45,16 +53,9 @@ document.querySelectorAll('.deleteItem').forEach((e, key) => {
 
 function editItems(index) {
   editIndex = index;
-  const itemEdit = todoItem.find((a, id) => id == index);
+  const itemEdit = todoItem.find((a, id) => id === index);
   addTaskInput.value = itemEdit.description;
 }
 document.querySelectorAll('.editItem').forEach((e, key) => {
   e.addEventListener('click', () => editItems(key));
 });
-
-function saveEdit(index) {
-  const newInput = todoItem[index];
-  newInput.description = addTaskInput.value;
-  localStorage.setItem('todoItem', JSON.stringify(todoItem));
-}
-
