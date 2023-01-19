@@ -38,6 +38,10 @@ h1 {
   font-size: 2rem;
 }
 
+.editItem{
+  margin-left: 1rem;
+}
+
 .arrange-items {
   display: flex;
   justify-content: space-between;
@@ -56,16 +60,10 @@ h1 {
   border: none;
   font-size: 1.8rem;
   font-style: italic;
+  outline: none;
 }
 
-.input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.clear-all {
+.clear {
   background-color: rgb(220, 217, 217);
   font-size: 2rem;
   width: 100%;
@@ -76,3 +74,5 @@ h1 {
 .list-items {
   gap: 6rem;
 }
+
+

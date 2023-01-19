@@ -1,41 +1,60 @@
+
 import './style.css';
+import { getTodos } from './modules/task.js';
 
-const tasks = document.querySelector('.task-list');
+const addTaskInput = document.querySelector('.add-task__input');
+const taskList = document.querySelector('.add-task');
+const todoItem = JSON.parse(localStorage.getItem('todoItem')) || [];
+const addIcon= document.querySelector('.add__icon')
+export let editIndex = null;
 
-const listArr = [
-  {
-    description: 'Going to study webpack 1',
-    complete: false,
-    index: 0,
-  },
-  {
-    description: 'Going to study webpack 2',
-    complete: false,
-    index: 1,
-  },
-  {
-    description: 'Going to study webpack 3',
-    complete: false,
-    index: 2,
-  },
-];
+function saveLocalTodos({ index, description, completed }) {
+  todoItem.push({ index, description, completed });
+  localStorage.setItem('todoItem', JSON.stringify(todoItem));
+}
 
-const displayTasks = (task) => {
-  tasks.insertAdjacentHTML(
-    'afterbegin',
-    `
-<li class="list-items arrange-items">
-<div class="input">
-  <input type="checkbox" name="" class="list-item" id="${task.index}" >
-  <label class="list__input" for="">${task.description}</label>
-</div>
-<i class="fa-sharp fa-solid fa-trash icon__size"></i>
-</li>
-<hr>
-`,
-  );
+
+const showTasks = (e) => {
+  e.preventDefault();
+  if (editIndex !== null) {
+
+    saveEdit(editIndex);
+    editIndex = null;
+  } else {
+    saveLocalTodos({ index: todoItem.length + 1, description: addTaskInput.value, completed: false });
+  }
+  getTodos();
+  addTaskInput.value = '';
+  window.location.reload();
 };
-tasks.inerHTML = listArr
-  .reverse()
-  .map((task) => displayTasks(task))
-  .join('');
+taskList.addEventListener('submit', showTasks);
+addIcon.addEventListener('click', showTasks);
+
+function deleteItem(index) {
+  const filterItems = todoItem.filter((todo, id) => id !== index);
+  filterItems.forEach((item, index) => {
+    item.index = index + 1;
+  });
+  localStorage.setItem('todoItem', JSON.stringify(filterItems));
+  window.location.reload();
+}
+
+document.querySelectorAll('.deleteItem').forEach((e, key) => {
+  e.addEventListener('click', () => deleteItem(key));
+});
+
+function editItems(index) {
+  editIndex = index;
+  const itemEdit = todoItem.find((a, id) => id == index);
+  addTaskInput.value = itemEdit.description;
+}
+document.querySelectorAll('.editItem').forEach((e, key) => {
+  e.addEventListener('click', () => editItems(key));
+});
+
+function saveEdit(index) {
+  const newInput = todoItem[index];
+  newInput.description = addTaskInput.value;
+  localStorage.setItem('todoItem', JSON.stringify(todoItem));
+}
+
