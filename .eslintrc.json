@@ -1,40 +1,26 @@
 {
-  "name": "gsmalik030-todo-list.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gsmalik030-todo-list/gsmalik030-todo-list.github.io.git"
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gsmalik030-todo-list/gsmalik030-todo-list.github.io/issues"
+  "extends": ["airbnb-base"],
+  "rules": {
+    "no-shadow": "off",
+    "no-param-reassign": "off",
+    "eol-last": "off",
+    "import/extensions": [
+      1,
+      {
+        "js": "always",
+        "json": "always"
+      }
+    ]
   },
-  "homepage": "https://github.com/gsmalik030-todo-list/gsmalik030-todo-list.github.io#readme",
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "css-loader": "^6.7.3",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.27.5",
-    "hint": "^2.0.0",
-    "html-webpack-plugin": "^5.5.0",
-    "style-loader": "^3.3.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "^3.21.0",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+  "ignorePatterns": ["dist/", "build/"]
 }
