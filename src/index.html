@@ -9,7 +9,6 @@
       src="https://kit.fontawesome.com/deef7307a0.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./style.css" type="text/css" />
   </head>
   <body>
     <section class="container">
@@ -18,20 +17,21 @@
         <i class="fa-sharp fa-solid fa-arrows-rotate icon__size"></i>
       </header>
       <hr />
-      <article class="add-task arrange-items">
+      <form class="add-task arrange-items">
         <input
+          required
           class="add-task__input"
           type="text"
           placeholder="Add your task here.."
         />
-        <i class="fa-solid fa-plus icon__size"></i>
-      </article>
+        <i class="fa-solid fa-plus icon__size add__icon"></i>
+      </form>
       <hr />
       <div class="task-display-box">
         <ul class="task-list"></ul>
       </div>
       <div class="clear-task">
-        <button class="clear-all">Clear all completed</button>
+        <button class="clear">Clear all completed</button>
       </div>
     </section>
   </body>

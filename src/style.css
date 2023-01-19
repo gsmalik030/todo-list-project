@@ -13,12 +13,7 @@ body {
   align-items: center;
   height: 100vh;
   background: rgb(61, 218, 213);
-  background:
-    radial-gradient(
-      circle,
-      rgba(61, 218, 213, 0.8888597675398284) 14%,
-      rgba(163, 112, 219, 0.8804564061952906) 86%
-    );
+  background: radial-gradient(circle, rgba(61, 218, 213, 0.8888597675398284) 14%, rgba(163, 112, 219, 0.8804564061952906) 86%);
 }
 
 li {
@@ -36,6 +31,10 @@ h1 {
 
 .icon__size {
   font-size: 2rem;
+}
+
+.editItem {
+  margin-left: 1rem;
 }
 
 .arrange-items {
@@ -56,16 +55,10 @@ h1 {
   border: none;
   font-size: 1.8rem;
   font-style: italic;
+  outline: none;
 }
 
-.input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.clear-all {
+.clear {
   background-color: rgb(220, 217, 217);
   font-size: 2rem;
   width: 100%;
