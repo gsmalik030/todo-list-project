@@ -1,5 +1,6 @@
 import './style.css';
-import { getTodos } from './modules/task.js';
+import { allTasks } from './modules/task.js';
+import { displayBox } from './modules/intravtive-list.js';
 
 const addTaskInput = document.querySelector('.add-task__input');
 const taskList = document.querySelector('.add-task');
@@ -8,6 +9,8 @@ const addIcon = document.querySelector('.add__icon');
 const clear = document.querySelector('.clear');
 // eslint-disable-next-line import/prefer-default-export, import/no-mutable-exports
 export let editIndex = null;
+
+allTasks.addEventListener('click', displayBox());
 
 function saveLocalTodos({ index, description, completed }) {
   todoItem.push({ index, description, completed });
@@ -32,7 +35,6 @@ const showTasks = (e) => {
       completed: false,
     });
   }
-  getTodos();
   addTaskInput.value = '';
   window.location.reload();
 };
