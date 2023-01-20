@@ -69,7 +69,7 @@ Todo list with webpack</b></h3>
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](gsmalik030-todo-list.github.io)
+- [Live Demo Link](https://gsmalik030.github.io/todo-list-project/dist/index.html)
 
 ### Prerequisites
 
