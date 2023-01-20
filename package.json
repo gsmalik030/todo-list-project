@@ -1,12 +1,14 @@
 {
-  "name": "gsmalik030-todo-list.github.io",
+  "name": "todo-list-project",
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open",
-    "build": "webpack"
+    "start": "react-scripts start",
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -18,13 +20,14 @@
   "bugs": {
     "url": "https://github.com/gsmalik030-todo-list/gsmalik030-todo-list.github.io/issues"
   },
-  "homepage": "https://github.com/gsmalik030-todo-list/gsmalik030-todo-list.github.io#readme",
+  "homepage": "https://gsmalik030.github.io/todo-list-project",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.27.5",
+    "gh-pages": "^4.0.0",
     "hint": "^2.0.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
