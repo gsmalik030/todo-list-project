@@ -36,6 +36,7 @@ export function displayBox() {
       todoItem.push(taskUpdate);
       localStorage.setItem('todoItem', JSON.stringify(todoItem));
       getTodos();
+      window.location.reload();
     });
   }
 }

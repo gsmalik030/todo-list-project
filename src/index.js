@@ -5,6 +5,7 @@ const addTaskInput = document.querySelector('.add-task__input');
 const taskList = document.querySelector('.add-task');
 const todoItem = JSON.parse(localStorage.getItem('todoItem')) || [];
 const addIcon = document.querySelector('.add__icon');
+const clear = document.querySelector('.clear');
 // eslint-disable-next-line import/prefer-default-export, import/no-mutable-exports
 export let editIndex = null;
 
@@ -59,3 +60,10 @@ function editItems(index) {
 document.querySelectorAll('.editItem').forEach((e, key) => {
   e.addEventListener('click', () => editItems(key));
 });
+
+function clearItems() {
+  const filterItems = todoItem.filter((todo) => todo.completed !== true);
+  localStorage.setItem('todoItem', JSON.stringify(filterItems));
+  window.location.reload();
+}
+clear.addEventListener('click', clearItems);

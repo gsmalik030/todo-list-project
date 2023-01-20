@@ -27,6 +27,7 @@ h1 {
 
 .container {
   background-color: white;
+  min-width: 40rem;
 }
 
 .icon__size {
