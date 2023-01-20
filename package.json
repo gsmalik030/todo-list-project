@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/gsmalik030-todo-list/gsmalik030-todo-list.github.io/issues"
   },
-  "homepage": "https://gsmalik030.github.io/todo-list-project",
+  "homepage": "https://gsmalik030.github.io/todo-list-project/dist/index.html",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
